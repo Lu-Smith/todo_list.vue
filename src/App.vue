@@ -5,7 +5,19 @@
     <router-link to="/contact">Contact</router-link>
   </nav>
   <router-view/>
+  <MainFooter />
 </template>
+
+<script>
+import MainFooter from '@/components/MainFooter.vue';
+
+export default {
+  name: 'HomeView',
+  components: {
+    MainFooter
+  }
+}
+</script>
 
 <style>
 #app {
