@@ -1,5 +1,5 @@
 <template>
-  <h1>I am list...</h1>
+  <h2>Things to do 🤔</h2>
 </template>
 
 <script>
