@@ -1,7 +1,7 @@
 <template>
     <div class="home">
       <h1>home</h1>
-      <input type="text" placeholder="enter the task..." v-model="tasks" >
+      <input type="text" placeholder="enter the task..." v-model="task" >
       <button @click="addTask">add</button>
       <MyList :tasks="tasks" />
     </div>
@@ -17,12 +17,13 @@ export default {
   },
   data () {
     return {
-      tasks: ""
+      tasks: [],
+      task: ""
     }
   },
   methods: {
     addTask() {
-      console.log(this.tasks)
+      this.tasks.push(this.task)
     }
   }
 }
