@@ -1,7 +1,8 @@
 <template>
     <div class="home">
       <h1>home</h1>
-      <input type="text" placeholder="enter the task..." v-model="tasks">
+      <input type="text" placeholder="enter the task..." v-model="tasks" >
+      <button @click="addTask">add</button>
       <MyList :tasks="tasks" />
     </div>
 </template>
@@ -17,6 +18,11 @@ export default {
   data () {
     return {
       tasks: ""
+    }
+  },
+  methods: {
+    addTask() {
+      console.log(this.tasks)
     }
   }
 }
