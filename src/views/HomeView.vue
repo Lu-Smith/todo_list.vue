@@ -1,9 +1,8 @@
 <template>
     <div class="home">
       <h1>home</h1>
-      <input type="text" placeholder="enter the task..." v-model="task">
-      <p>{{ task }}</p>
-      <MyList />
+      <input type="text" placeholder="enter the task..." v-model="tasks">
+      <MyList :tasks="tasks" />
     </div>
 </template>
 
@@ -17,7 +16,7 @@ export default {
   },
   data () {
     return {
-      task: ""
+      tasks: ""
     }
   }
 }
