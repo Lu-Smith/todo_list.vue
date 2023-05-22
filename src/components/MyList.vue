@@ -1,6 +1,8 @@
 <template>
   <h2>Things to do 🤔</h2>
-  <p>{{ tasks }}</p>
+  <div v-for="task in tasks" :key="task">
+    <p>{{ task }}</p>
+  </div>
 </template>
 
 <script>
