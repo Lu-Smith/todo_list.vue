@@ -23,7 +23,10 @@ export default {
   },
   methods: {
     addTask() {
-      this.tasks.push({name: this.tempTask, done: false})
+      if (this.tempTask.length > 2) {
+        this.tasks.push({name: this.tempTask, done: false})
+      }
+      
       this.tempTask = ""
     },
     removeTask(task) {
