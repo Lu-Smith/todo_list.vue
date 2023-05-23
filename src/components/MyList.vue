@@ -1,8 +1,8 @@
 <template>
   <h2>Things to do 🤔</h2>
   <div v-for="task in tasks" :key="task">
-      <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': doneTask}">
-        <p>{{ task }}</p>
+      <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
+        <p>{{ task.name }}</p>
         <button @click="removeTask(task)">remove</button>
       </div>
   </div>
@@ -11,14 +11,9 @@
 <script>
 export default {
   props: ["tasks"],
-  data () {
-    return {
-      doneTask: false
-    }
-  },
   methods: {
     markDoneTask(task) {
-        this.doneTask = !this.doneTask
+      task.done = !task.done;
     },
     removeTask(task) {
       this.$emit("remove-task", task)
