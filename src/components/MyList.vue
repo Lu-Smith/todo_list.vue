@@ -1,7 +1,7 @@
 <template>
   <h2>Things to do 🤔</h2>
   <div v-for="task in tasks" :key="task">
-      <div @click="markDoneTask(task)" :class="{'task': true, 'doneTask': doneTask}">
+      <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': doneTask}">
         <p>{{ task }}</p>
         <button @click="removeTask(task)">remove</button>
       </div>
@@ -21,7 +21,7 @@ export default {
         this.doneTask = !this.doneTask
     },
     removeTask(task) {
-      this.tasks = this.tasks.filter((item) => item !== task )
+      this.$emit("remove-task", task)
     }
   }
 }
