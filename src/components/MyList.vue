@@ -1,7 +1,10 @@
 <template>
   <h2>Things to do 🤔</h2>
   <div v-for="task in tasks" :key="task">
-    <div @clicremoveTaskk="(task)" class="task">{{ task }}</div>
+      <div @click="markDoneTask(task)" class="task" :class="doneTask ? 'done-task' : ''">
+        <p>{{ task }}</p>
+        <button @click="removeTask">remove</button>
+      </div>
   </div>
 </template>
 
@@ -14,8 +17,13 @@ export default {
     }
   },
   methods: {
+    markDoneTask() {
+        this.doneTask = !this.doneTask
+    },
     removeTask(task) {
-       console.log(task)
+      this.tasks = this.tasks.filter((item) => {
+        return task !== item
+       })
     }
   }
 }
@@ -30,5 +38,9 @@ export default {
   border: 2px solid red;
   border-radius: 40px;
   width: 80%;
+}
+
+.done-task {
+  background: blue;
 }
 </style>
