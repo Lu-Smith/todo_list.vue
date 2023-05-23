@@ -24,6 +24,7 @@ export default {
   methods: {
     addTask() {
       this.tasks.push(this.tempTask)
+      this.tempTask = ""
     }
   }
 }
