@@ -3,7 +3,9 @@
   <div v-for="task in tasks" :key="task">
       <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
         <span>{{ task.name }}</span>
-        <button @click="removeTask(task)">remove</button>
+        <button @click="removeTask(task)"><span class="material-symbols-outlined">
+delete
+</span></button>
       </div>
   </div>
 </template>
@@ -36,8 +38,18 @@ export default {
   justify-content: space-between;
 }
 
-.task span {
-  padding-left: 20px;
+button {
+  background: none;
+  border: none;
+}
+
+.material-symbols-outlined {
+  color: white;
+  font-variation-settings:
+  'FILL' 10,
+  'wght' 800,
+  'GRAD' 100,
+  'opsz' 28
 }
 
 .done-task {
