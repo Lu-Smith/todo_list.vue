@@ -3,7 +3,7 @@
       <h1>home</h1>
       <input type="text" placeholder="enter the task..." v-model="tempTask" >
       <button @click="addTask">add</button>
-      <MyList :tasks="tasks" />
+      <MyList :tasks="tasks" @remove-task="removeTask"/>
     </div>
 </template>
 
@@ -25,6 +25,9 @@ export default {
     addTask() {
       this.tasks.push(this.tempTask)
       this.tempTask = ""
+    },
+    removeTask(task) {
+      this.tasks = this.tasks.filter(item => item !== task);
     }
   }
 }
