@@ -2,7 +2,7 @@
   <h2>Things to do 🤔</h2>
   <div v-for="task in tasks" :key="task">
       <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
-        <p>{{ task.name }}</p>
+        <span>{{ task.name }}</span>
         <button @click="removeTask(task)">remove</button>
       </div>
   </div>
@@ -31,9 +31,17 @@ export default {
   border: 2px solid red;
   border-radius: 40px;
   width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task span {
+  padding-left: 20px;
 }
 
 .done-task {
-  background: blue;
+  background: rgb(240, 96, 151);
+  width: 50%;
 }
 </style>
