@@ -48,6 +48,7 @@ input {
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
   width: 40%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .addTaskButton {
@@ -61,5 +62,6 @@ input {
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
   cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 </style>
