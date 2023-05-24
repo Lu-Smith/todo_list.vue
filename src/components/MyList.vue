@@ -1,5 +1,5 @@
 <template>
-  <h2>My List 📃</h2>
+  <h2 v-if="listTitle">{{ listTitle }}</h2>
   <div v-for="task in tasks" :key="task">
       <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
         <span>{{ task.name }}</span>
@@ -13,6 +13,11 @@ delete
 <script>
 export default {
   props: ["tasks"],
+  data() {
+    return {
+      listTitle: 'My List 📃'
+    }
+  },
   methods: {
     markDoneTask(task) {
       task.done = !task.done;
