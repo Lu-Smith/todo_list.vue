@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-      <h1>home</h1>
+      <h1>What to do today 🤔</h1>
       <input type="text" placeholder="enter the task..." v-model="tempTask" >
       <button @click="addTask" class="addTaskButton">add</button>
       <MyList :tasks="tasks" @remove-task="removeTask"/>
