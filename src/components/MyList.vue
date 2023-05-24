@@ -1,5 +1,6 @@
 <template>
   <h2 v-if="tasks.length > 0">{{ listTitle }}</h2>
+  <h2 v-else>Woohoo, nothing to do!</h2>
   <div v-for="task in tasks" :key="task">
       <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
         <span v-if="task.done" class="material-symbols-outlined" >
