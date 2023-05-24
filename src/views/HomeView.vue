@@ -1,6 +1,7 @@
 <template>
     <div class="home">
       <h1>What to do today 🤔</h1>
+      <div  class="error" :class="{'show-error' : showError}">You must enter a task ( more than 2 characters ).</div>
       <input type="text" placeholder="enter the task..." v-model="tempTask" >
       <button @click="addTask" class="addTaskButton">add</button>
       <MyList :tasks="tasks" @remove-task="removeTask"/>
@@ -18,13 +19,17 @@ export default {
   data () {
     return {
       tasks: [],
-      tempTask: ""
+      tempTask: "",
+      showError: false
     }
   },
   methods: {
     addTask() {
       if (this.tempTask.length > 2) {
         this.tasks.push({name: this.tempTask, done: false})
+        this.showError = false
+      } else {
+        this.showError = true
       }
       
       this.tempTask = ""
@@ -65,5 +70,23 @@ input {
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   font-size: 18px;
+}
+
+.error {
+  background: red;
+  padding: 20px 30px;
+  color: white;
+  position: fixed;
+  top: 30px;
+  left: 0px;
+  right: 0px;
+  width: 60%;
+  margin: auto;
+  border-radius: 20px;
+  display: none;
+}
+
+.show-error {
+  display: block;
 }
 </style>
