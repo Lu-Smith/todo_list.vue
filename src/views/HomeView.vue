@@ -40,7 +40,7 @@ export default {
 input {
   background: rgb(248, 244, 244);
   color: rgb(99, 6, 6);
-  padding: 10px;
+  padding: 10px 30px;
   border: none;
   border-top: 2px solid red;
   border-left: 2px solid red;
@@ -49,6 +49,7 @@ input {
   border-bottom-left-radius: 40px;
   width: 40%;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
 }
 
 .addTaskButton {
@@ -63,5 +64,6 @@ input {
   border-bottom-right-radius: 40px;
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
 }
 </style>

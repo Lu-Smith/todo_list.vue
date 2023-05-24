@@ -29,13 +29,16 @@ export default {
   background: black;
   color: white;
   margin: 5px auto;
-  padding: 10px;
+  padding: 10px 30px;
   border: 2px solid red;
   border-radius: 40px;
   width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  font-size: 20px;
 }
 
 button {
