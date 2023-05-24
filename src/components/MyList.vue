@@ -1,5 +1,5 @@
 <template>
-  <h2>Things to do 🤔</h2>
+  <h2>My List 📃</h2>
   <div v-for="task in tasks" :key="task">
       <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
         <span>{{ task.name }}</span>
