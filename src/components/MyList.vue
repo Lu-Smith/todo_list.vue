@@ -2,10 +2,14 @@
   <h2 v-if="tasks.length > 0">{{ listTitle }}</h2>
   <div v-for="task in tasks" :key="task">
       <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
+        <span v-if="task.done" class="material-symbols-outlined" >
+          done
+        </span>
         <span>{{ task.name }}</span>
         <button @click="removeTask(task)"><span class="material-symbols-outlined">
-delete
-</span></button>
+          delete
+        </span>
+        </button>
       </div>
   </div>
 </template>
