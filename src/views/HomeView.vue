@@ -150,4 +150,18 @@ input {
   transition: all 2s ease;
 }
 
+.error-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.error-leave-to {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+
+.error-leave-active {
+  transition: all 2s ease;
+}
+
 </style>
