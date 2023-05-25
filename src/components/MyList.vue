@@ -30,7 +30,8 @@ export default {
     removeTask(task) {
       this.$emit("remove-task", task)
     }
-  }
+  },
+  emits: ['remove-task']
 }
 </script>
 

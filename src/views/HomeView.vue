@@ -2,9 +2,9 @@
     <div class="home">
       <h1>What to do today 🤔</h1>
       <div  class="error" :class="{'show-error' : showError}">You must enter a task ( more than 2 characters ).</div>
-      <input type="text" placeholder="enter the task..." v-model="tempTask" >
+      <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
       <button @click="addTask" class="addTaskButton">add</button>
-      <MyList :tasks="tasks" @remove-task="removeTask"/>
+      <MyList :tasks="tasks" @remove-task="removeTask" />
     </div>
 </template>
 
