@@ -20,13 +20,14 @@ export default {
     return {
       tasks: [],
       tempTask: "",
-      showError: false
+      showError: false,
+      id: 1
     }
   },
   methods: {
     addTask() {
       if (this.tempTask.length > 2) {
-        this.tasks.push({name: this.tempTask, done: false})
+        this.tasks.push({name: this.tempTask, done: false, id: this.id++})
         this.showError = false
       } else {
         this.showError = true

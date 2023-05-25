@@ -6,6 +6,7 @@
         <span v-if="task.done" class="material-symbols-outlined" >
           done
         </span>
+        <span>{{ task.id }}</span>
         <span>{{ task.name }}</span>
         <button @click="removeTask(task)"><span class="material-symbols-outlined">
           delete
