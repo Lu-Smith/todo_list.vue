@@ -5,10 +5,12 @@
       <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
       <button @click="addTask" class="addTaskButton">add</button>
       <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
-      <transition name="fade">
+      <div class="toggle-button">
+        <transition name="fade">
         <div v-if="showP" class="fun-phrase">hello, sunshine 🌞</div>
       </transition>
-      <button class="toggle-button" @click="showP = !showP">toggle</button>
+      <button  @click="showP = !showP">toggle</button>
+      </div>
     </div>
 </template>
 
@@ -74,19 +76,11 @@ input {
   font-size: 18px;
 }
 
-button {
-  background: rgb(102, 4, 4);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 20px;
-}
-
 .toggle-button {
   position: fixed;
   bottom: 100px;
+  left: 0;
+  right: 0;
 }
 
 .addTaskButton {
