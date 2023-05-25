@@ -3,11 +3,11 @@
   <h2 v-else>Woohoo, nothing to do!</h2>
   <div v-for="task in tasks" :key="task">
       <div @click="markDoneTask(task)" :class="{'task': true, 'done-task': task.done}">
-        <span v-if="task.done" class="material-symbols-outlined" >
+        <span>{{ task.id }}</span>
+        <span v-if="task.done" class="material-symbols-outlined done-tick" >
           done
         </span>
-        <span>{{ task.id }}</span>
-        <span>{{ task.name }}</span>
+        <span class="task-name">{{ task.name }}</span>
         <button @click="removeTask(task)"><span class="material-symbols-outlined">
           delete
         </span>
@@ -53,6 +53,10 @@ export default {
   font-size: 20px;
 }
 
+.task-name {
+  width: 60%;
+}
+
 button {
   background: none;
   border: none;
@@ -71,4 +75,9 @@ button {
   background: rgb(240, 96, 151);
   width: 50%;
 }
+
+.done-tick {
+  color:rgb(65, 230, 32);
+}
+
 </style>
