@@ -47,3 +47,14 @@
 </div>
   </div>
 </template>
+
+<style>
+  .about {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  .about h1 {
+    margin-top: 50px;
+  }
+</style>
