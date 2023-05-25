@@ -46,5 +46,15 @@ nav a.router-link-exact-active {
 
 h1 {
     margin-top: 50px;
-  }
+}
+
+button {
+  background: rgb(102, 4, 4);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 20px;
+}
 </style>

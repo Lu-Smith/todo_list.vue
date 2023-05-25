@@ -8,7 +8,7 @@
       <transition name="fade">
         <div v-if="showP" class="fun-phrase">hello, sunshine 🌞</div>
       </transition>
-      <button @click="showP = !showP">toggle</button>
+      <button class="toggle-button" @click="showP = !showP">toggle</button>
     </div>
 </template>
 
@@ -82,6 +82,11 @@ button {
   cursor: pointer;
   font-size: 18px;
   border-radius: 20px;
+}
+
+.toggle-button {
+  position: fixed;
+  bottom: 100px;
 }
 
 .addTaskButton {
