@@ -44,5 +44,19 @@
     max-width: 400px;
     margin: 60px auto;
   }
+
+  .contact li {
+    list-style-type: none;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    line-height: 1.5em;
+  }
+
+  .contact li:hover {
+    background: rgb(233, 232, 232);
+  }
 </style>
   
