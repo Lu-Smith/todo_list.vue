@@ -4,7 +4,7 @@
       <div  class="error" :class="{'show-error' : showError}">You must enter a task ( more than 2 characters ).</div>
       <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
       <button @click="addTask" class="addTaskButton">add</button>
-      <MyList :tasks="tasks" @remove-task="removeTask" />
+      <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
     </div>
 </template>
 
@@ -29,14 +29,25 @@ export default {
       if (this.tempTask.length > 2) {
         this.tasks.push({name: this.tempTask, done: false, id: this.id++})
         this.showError = false
+        this.updateTaskIDs();
       } else {
         this.showError = true
       }
-      
+       
       this.tempTask = ""
     },
     removeTask(task) {
       this.tasks = this.tasks.filter(item => item !== task);
+      this.updateTaskIDs();
+    },
+    updateTaskIDs() {
+      this.tasks.forEach((task, index) => {
+        task.id = index + 1;
+      });
+      this.$emit('update-tasks', this.tasks);
+    },
+    updateTasks(updatedTasks) {
+      this.tasks = updatedTasks;
     }
   }
 }
