@@ -126,19 +126,15 @@ button {
   opacity: 1;
 }
 
-.fade-enter-active {
+.fade-enter-active, .fade-leave-active {
   transition: all 2s ease;
 }
 
 .fade-leave-from {
-
+  opacity: 1;
 }
 
 .fade-leave-to {
-  
-}
-
-.fade-leave-active {
-  
+  opacity: 0;
 }
 </style>
