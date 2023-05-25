@@ -5,8 +5,8 @@
       <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
       <button @click="addTask" class="addTaskButton">add</button>
       <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
-      <transition>
-        <div v-if="showP">hello, sunshine</div>
+      <transition name="fade">
+        <div v-if="showP" class="fun-phrase">hello, sunshine 🌞</div>
       </transition>
       <button @click="showP = !showP">toggle</button>
     </div>
@@ -74,19 +74,26 @@ input {
   font-size: 18px;
 }
 
-.addTaskButton {
+button {
   background: rgb(102, 4, 4);
   color: white;
-  padding: 10px 30px 10px 20px;
+  padding: 10px 20px;
   border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.addTaskButton {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 10px 30px 10px 20px;
   border-top: 2px solid red;
   border-right: 2px solid red;
   border-bottom: 2px solid red;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
-  cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-  font-size: 18px;
 }
 
 .error {
@@ -105,5 +112,33 @@ input {
 
 .show-error {
   display: block;
+}
+
+.fun-phrase {
+  margin-bottom: 10px;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-enter-active {
+  transition: all 2s ease;
+}
+
+.fade-leave-from {
+
+}
+
+.fade-leave-to {
+  
+}
+
+.fade-leave-active {
+  
 }
 </style>

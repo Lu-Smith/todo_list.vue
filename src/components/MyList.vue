@@ -8,7 +8,7 @@
           done
         </span>
         <span @click="markDoneTask(task)" class="task-name">{{ task.name }}</span>
-        <button @click="removeTask(task)"><span class="material-symbols-outlined">
+        <button @click="removeTask(task)" class="bin"><span class="material-symbols-outlined">
           delete
         </span>
         </button>
@@ -58,7 +58,7 @@ export default {
   width: 65%;
 }
 
-button {
+.bin {
   background: none;
   border: none;
 }
