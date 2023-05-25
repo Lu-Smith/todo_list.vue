@@ -1,17 +1,21 @@
 <template>
-    <div class="home">
-      <h1>What to do today 🤔</h1>
-      <div  class="error" :class="{'show-error' : showError}">You must enter a task ( more than 2 characters ).</div>
-      <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
-      <button @click="addTask" class="addTaskButton">add</button>
-      <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
-      <div class="toggle-button">
-        <transition name="fade">
+  <div class="home">
+    <h1>What to do today 🤔</h1>
+    <transition name="error">
+      <template v-if="showError">
+        <div  class="error" >You must enter a task ( more than 2 characters ).</div>
+      </template>
+    </transition>
+    <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
+    <button @click="addTask" class="addTaskButton">add</button>
+  </div>
+  <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
+  <div class="toggle-button">
+      <transition name="fade">
         <div v-if="showP" class="fun-phrase">hello, sunshine 🌞</div>
       </transition>
       <button  @click="showP = !showP">toggle</button>
-      </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -106,11 +110,6 @@ input {
   width: 60%;
   margin: auto;
   border-radius: 20px;
-  display: none;
-}
-
-.show-error {
-  display: block;
 }
 
 .fun-phrase {
@@ -136,4 +135,19 @@ input {
 .fade-leave-to {
   opacity: 0;
 }
+
+.error-enter-from {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+
+.error-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.error-enter-active {
+  transition: all 2s ease;
+}
+
 </style>
