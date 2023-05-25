@@ -5,6 +5,10 @@
       <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
       <button @click="addTask" class="addTaskButton">add</button>
       <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
+      <transition>
+        <div v-if="showP">hello, sunshine</div>
+      </transition>
+      <button @click="showP = !showP">toggle</button>
     </div>
 </template>
 
@@ -21,7 +25,8 @@ export default {
       tasks: [],
       tempTask: "",
       showError: false,
-      id: 1
+      id: 1,
+      showP: false
     }
   },
   methods: {
