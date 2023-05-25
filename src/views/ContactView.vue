@@ -34,4 +34,15 @@
       }
     }
 </script>
+
+<style>
+  .contact ul {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    max-width: 400px;
+    margin: 60px auto;
+  }
+</style>
   
