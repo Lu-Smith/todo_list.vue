@@ -1,7 +1,9 @@
 <template>
-  <h2 v-if="tasks.length > 0">{{ listTitle }}</h2>
-  <h2 v-else>Woohoo, nothing to do!</h2>
-  <transition-group tag="div" name="list">
+  <transition name="switch">
+    <h2 v-if="tasks.length > 0">{{ listTitle }}</h2>
+    <h2 v-else>Woohoo, nothing to do!</h2>
+  </transition>
+  <transition-group tag="div" name="list" appear>
     <div v-for="task in tasks" :key="task.id">
         <div :class="{'task': true, 'done-task': task.done}">
           <span>{{ task.id }}</span>
@@ -93,7 +95,7 @@ export default {
   transform: scale(1);
 }
 
-.list-enter-active {
+.list-enter-active, .list-leave-active {
   transition: all 0.4s ease;
 }
 
@@ -106,10 +108,5 @@ export default {
   opacity: 0;
   transform: scale(0.6);
 }
-
-.list-leave-active {
-  transition: all 0.4s ease;
-}
-
 
 </style>
