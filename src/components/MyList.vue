@@ -1,19 +1,21 @@
 <template>
   <h2 v-if="tasks.length > 0">{{ listTitle }}</h2>
   <h2 v-else>Woohoo, nothing to do!</h2>
-  <div v-for="task in tasks" :key="task.id">
-      <div :class="{'task': true, 'done-task': task.done}">
-        <span>{{ task.id }}</span>
-        <span v-if="task.done" class="material-symbols-outlined done-tick" >
-          done
-        </span>
-        <span @click="markDoneTask(task)" class="task-name">{{ task.name }}</span>
-        <button @click="removeTask(task)" class="bin"><span class="material-symbols-outlined">
-          delete
-        </span>
-        </button>
-      </div>
-  </div>
+  <transition-group tag="div" name="list">
+    <div v-for="task in tasks" :key="task.id">
+        <div :class="{'task': true, 'done-task': task.done}">
+          <span>{{ task.id }}</span>
+          <span v-if="task.done" class="material-symbols-outlined done-tick" >
+            done
+          </span>
+          <span @click="markDoneTask(task)" class="task-name">{{ task.name }}</span>
+          <button @click="removeTask(task)" class="bin"><span class="material-symbols-outlined">
+            delete
+          </span>
+          </button>
+        </div>
+    </div>
+  </transition-group>
 </template>
 
 <script>
