@@ -1,6 +1,8 @@
 <template>
     <div class="contact">
-      <h1>Contact</h1>
+      <transition appear name="fadeTitle">
+        <h1>Contact</h1>
+       </transition>
       <ul>
         <li v-for="icon in icons" :key="icon.name">
           <span class="material-icons">{{ icon.name }}</span>

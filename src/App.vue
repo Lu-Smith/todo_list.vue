@@ -48,6 +48,22 @@ h1 {
     margin-top: 50px;
 }
 
+.fadeTitle-enter-from {
+    opacity: 0;
+  }
+
+  .fadeTitle-enter-active {
+    transition: opacity 3s ease;
+  }
+
+  .fadeTitle-leave-to {
+    opacity: 0;
+  }
+
+  .fadeTitle-leave-active {
+    transition: opacity 3s ease;
+  }
+
 button {
   background: rgb(102, 4, 4);
   color: white;

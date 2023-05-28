@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <h1>About</h1>
+    <transition appear name="fadeTitle">
+      <h1>About</h1>
+    </transition>
 <div>
   <p>
     In the realm of tasks and goals untold, <br />
@@ -53,4 +55,21 @@
     max-width: 600px;
     margin: 20px auto;
   }
+
+  .fadeTitle-enter-from {
+    opacity: 0;
+  }
+
+  .fadeTitle-enter-active {
+    transition: opacity 3s ease;
+  }
+
+  .fadeTitle-leave-to {
+    opacity: 0;
+  }
+
+  .fadeTitle-leave-active {
+    transition: opacity 3s ease;
+  }
+  
 </style>

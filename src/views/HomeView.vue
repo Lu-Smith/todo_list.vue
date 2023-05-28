@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <h1>What to do today 🤔</h1>
+    <transition appear name="fadeTitle">
+      <h1>What to do today 🤔</h1>
+    </transition>
     <transition name="error">
       <template v-if="showError">
         <div  class="error" >You must enter a task ( more than 2 characters ).</div>
