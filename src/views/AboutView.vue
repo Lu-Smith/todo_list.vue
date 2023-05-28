@@ -1,6 +1,11 @@
 <template>
   <div class="about">
-    <transition appear name="fadeTitle">
+    <transition 
+    appear
+    name="fadeTitle"
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @after-enter="afterEnter">
       <h1>About</h1>
     </transition>
 <div>
@@ -50,26 +55,27 @@
   </div>
 </template>
 
+<script>
+  export default {
+    setup() {
+      const beforeEnter = () => {
+        console.log('before enter')
+      }
+      const enter = () => {
+        console.log('enter')
+      }
+      const afterEnter = () => {
+        console.log('after enter')
+      }
+
+      return {beforeEnter, enter, afterEnter}
+    }
+  }
+</script>
+
 <style>
   .about {
     max-width: 600px;
     margin: 20px auto;
   }
-
-  .fadeTitle-enter-from {
-    opacity: 0;
-  }
-
-  .fadeTitle-enter-active {
-    transition: opacity 3s ease;
-  }
-
-  .fadeTitle-leave-to {
-    opacity: 0;
-  }
-
-  .fadeTitle-leave-active {
-    transition: opacity 3s ease;
-  }
-  
 </style>
