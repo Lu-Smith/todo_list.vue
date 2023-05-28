@@ -5,11 +5,8 @@
     name="fadeTitle"
     @before-enter="beforeEnter"
     @enter="enter"
-    @after-enter="afterEnter"
-    @before-leave="beforeLeave"
-    @leave="leave"
-    @after-leave="afterLeave">
-      <h1 v-if="showTitle">About</h1>
+    >
+      <h1>About</h1>
     </transition>
 <div>
   <p>
@@ -60,39 +57,19 @@
 
 <script>
   import { ref } from 'vue'
+  import gsap from 'gsap'
 
   export default {
     setup() {
-      const showTitle = ref(true)
-
       const beforeEnter = (el) => {
         console.log('before enter', el)
       }
       const enter = (el) => {
+        el.style.color = 'rgb(102, 4, 4)'
         console.log('enter', el)
       }
-      const afterEnter = (el) => {
-        el.style.color = 'green'
-        console.log('after enter', el)
-
-        setTimeout(() => showTitle.value = false, 2000)
-      }
-
       
-      const beforeLeave = (el) => {
-        el.style.color = 'pink'
-        console.log('before leave', el)
-      }
-
-      const leave = (el) => {
-        console.log('leave', el)
-      }
-
-      const afterLeave = (el) => {
-        console.log('after leave', el)
-      }
-
-      return {beforeEnter, enter, afterEnter, showTitle, beforeLeave, leave, afterLeave}
+      return {beforeEnter, enter}
     }
   }
 </script>
