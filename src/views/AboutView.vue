@@ -62,11 +62,18 @@
   export default {
     setup() {
       const beforeEnter = (el) => {
-        console.log('before enter', el)
+        console.log('before enter - set initial state', el)
+        el.style.transform = 'translateY(-60px)'
+        el.style.opacity = 0
       }
       const enter = (el) => {
-        el.style.color = 'rgb(102, 4, 4)'
-        console.log('enter', el)
+        console.log('starting to enter - make transition', el)
+        gsap.to(el, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'bounce.out'
+        })
       }
       
       return {beforeEnter, enter}
