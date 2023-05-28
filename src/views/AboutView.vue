@@ -58,7 +58,6 @@
 </template>
 
 <script>
-  import { ref } from 'vue'
   import gsap from 'gsap'
 
   export default {

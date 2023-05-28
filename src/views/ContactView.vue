@@ -3,17 +3,23 @@
       <transition appear name="fadeTitle">
         <h1>Contact</h1>
        </transition>
-      <ul>
+      <transition-group 
+      appear
+      tag="ul" 
+      @before-enter="beforeEnter"
+      @enter="enter"
+      >
         <li v-for="icon in icons" :key="icon.name">
           <span class="material-icons">{{ icon.name }}</span>
           <div>{{ icon.text }}</div>
         </li>
-      </ul>
+      </transition-group>
     </div>
   </template>
 
   <script>
     import { ref } from 'vue'
+    import gsap from 'gsap'
 
     export default {
       setup() {
@@ -32,7 +38,21 @@
           }
         ])
 
-        return { icons }
+        const beforeEnter = (el) => {
+          el.style.opacity = 0;
+          el.style.transform = 'translateY(100px)'
+        }
+
+        const enter = (el, done) => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            onComplete: done
+          })
+        }
+
+        return { icons, beforeEnter, enter }
       }
     }
 </script>
