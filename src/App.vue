@@ -4,7 +4,12 @@
     <router-link to="/about">About</router-link>
     <router-link to="/contact">Contact</router-link>
   </nav>
-  <router-view/>
+
+  <router-view v-slot="{ Component }">
+    <transition >
+      <component :is="Component"></component>
+    </transition>
+  </router-view>
   <MainFooter />
 </template>
 
