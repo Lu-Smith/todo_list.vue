@@ -5,7 +5,10 @@
     name="fadeTitle"
     @before-enter="beforeEnter"
     @enter="enter"
-    @after-enter="afterEnter">
+    @after-enter="afterEnter"
+    @before-leave="beforeLeave"
+    @leave="leave"
+    @after-leave="afterLeave">
       <h1 v-if="showTitle">About</h1>
     </transition>
 <div>
@@ -74,7 +77,20 @@
         setTimeout(() => showTitle.value = false, 2000)
       }
 
-      return {beforeEnter, enter, afterEnter, showTitle}
+      
+      const beforeLeave = () => {
+        console.log('before leave')
+      }
+
+      const leave = () => {
+        console.log('leave')
+      }
+
+      const afterLeave = () => {
+        console.log('after leave')
+      }
+
+      return {beforeEnter, enter, afterEnter, showTitle, beforeLeave, leave, afterLeave}
     }
   }
 </script>
