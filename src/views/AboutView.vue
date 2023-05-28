@@ -6,7 +6,6 @@
     @before-enter="beforeEnter"
     @enter="enter"
     @after-enter="afterEnter"
-
     >
       <h1>About</h1>
     </transition>

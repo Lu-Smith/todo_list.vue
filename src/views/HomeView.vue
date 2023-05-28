@@ -1,22 +1,24 @@
 <template>
-  <div class="home">
-    <transition appear name="fadeTitle">
-      <h1>What to do today 🤔</h1>
-    </transition>
-    <transition name="error">
-      <template v-if="showError">
-        <div  class="error" >You must enter a task ( more than 2 characters ).</div>
-      </template>
-    </transition>
-    <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
-    <button @click="addTask" class="addTaskButton">add</button>
-  </div>
-  <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
-  <div class="toggle-button">
-      <transition name="fade">
-        <div v-if="showP" class="fun-phrase">hello, sunshine 🌞</div>
+  <div>
+    <div class="home">
+      <transition appear name="fadeTitle">
+        <h1>What to do today 🤔</h1>
       </transition>
-      <button  @click="showP = !showP">toggle</button>
+      <transition name="error">
+        <template v-if="showError">
+          <div  class="error" >You must enter a task ( more than 2 characters ).</div>
+        </template>
+      </transition>
+      <input type="text" placeholder="enter the task..." v-model="tempTask" @keydown.enter="addTask"/>
+      <button @click="addTask" class="addTaskButton">add</button>
+    </div>
+    <MyList :tasks="tasks" @remove-task="removeTask" @update-tasks="updateTasks" />
+    <div class="toggle-button">
+        <transition name="fade">
+          <div v-if="showP" class="fun-phrase">hello, sunshine 🌞</div>
+        </transition>
+        <button  @click="showP = !showP">toggle</button>
+    </div>
   </div>
 </template>
 
