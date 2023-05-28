@@ -5,6 +5,8 @@
     name="fadeTitle"
     @before-enter="beforeEnter"
     @enter="enter"
+    @after-enter="afterEnter"
+
     >
       <h1>About</h1>
     </transition>
@@ -66,17 +68,21 @@
         el.style.transform = 'translateY(-60px)'
         el.style.opacity = 0
       }
-      const enter = (el) => {
+      const enter = (el, done) => {
         console.log('starting to enter - make transition', el)
         gsap.to(el, {
           y: 0,
           opacity: 1,
-          duration: 1,
-          ease: 'bounce.out'
+          duration: 3,
+          ease: 'bounce.out',
+          onComplete: done
         })
       }
+      const afterEnter = (el) => {
+        console.log('after enter')
+      }
       
-      return {beforeEnter, enter}
+      return {beforeEnter, enter, afterEnter}
     }
   }
 </script>
