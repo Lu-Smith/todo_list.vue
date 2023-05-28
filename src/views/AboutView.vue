@@ -6,7 +6,7 @@
     @before-enter="beforeEnter"
     @enter="enter"
     @after-enter="afterEnter">
-      <h1>About</h1>
+      <h1 v-if="showTitle">About</h1>
     </transition>
 <div>
   <p>
@@ -56,8 +56,12 @@
 </template>
 
 <script>
+  import { ref } from 'vue'
+
   export default {
     setup() {
+      const showTitle = ref(true)
+
       const beforeEnter = () => {
         console.log('before enter')
       }
@@ -66,9 +70,11 @@
       }
       const afterEnter = () => {
         console.log('after enter')
+
+        setTimeout(() => showTitle.value = false, 2000)
       }
 
-      return {beforeEnter, enter, afterEnter}
+      return {beforeEnter, enter, afterEnter, showTitle}
     }
   }
 </script>
