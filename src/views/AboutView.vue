@@ -65,29 +65,31 @@
     setup() {
       const showTitle = ref(true)
 
-      const beforeEnter = () => {
-        console.log('before enter')
+      const beforeEnter = (el) => {
+        console.log('before enter', el)
       }
-      const enter = () => {
-        console.log('enter')
+      const enter = (el) => {
+        console.log('enter', el)
       }
-      const afterEnter = () => {
-        console.log('after enter')
+      const afterEnter = (el) => {
+        el.style.color = 'green'
+        console.log('after enter', el)
 
         setTimeout(() => showTitle.value = false, 2000)
       }
 
       
-      const beforeLeave = () => {
-        console.log('before leave')
+      const beforeLeave = (el) => {
+        el.style.color = 'pink'
+        console.log('before leave', el)
       }
 
-      const leave = () => {
-        console.log('leave')
+      const leave = (el) => {
+        console.log('leave', el)
       }
 
-      const afterLeave = () => {
-        console.log('after leave')
+      const afterLeave = (el) => {
+        console.log('after leave', el)
       }
 
       return {beforeEnter, enter, afterEnter, showTitle, beforeLeave, leave, afterLeave}
