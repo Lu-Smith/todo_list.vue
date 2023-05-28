@@ -1,5 +1,5 @@
 <template>
-  <transition name="switch">
+  <transition name="switch" mode="out-in">
     <h2 v-if="tasks.length > 0">{{ listTitle }}</h2>
     <h2 v-else>Woohoo, nothing to do!</h2>
   </transition>
@@ -107,6 +107,20 @@ export default {
 .list-leave-to {
   opacity: 0;
   transform: scale(0.6);
+}
+
+.switch-enter-from, .switch-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* .switch-enter-to, .switch-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+.switch-enter-active, .switch-leave-active {
+  transition: all 0.5s ease;
 }
 
 </style>
